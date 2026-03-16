@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Portfolio</title>
+    <title>Conor Rabbitte</title>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@1" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
     <!-- Header Section -->
     <!-- Navigation : Desktop -->
     <header id="navbar">
-        <nav class="nav-container"  >
-            <ul>
+        <nav class="nav-container">
+            <a href="#hero" class="nav-logo">Conor Rabbitte</a>
+
+            <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#education">Education</a></li>
@@ -22,10 +28,7 @@
 
             <div class="nav-controls">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
-                    <span class="theme-icon">
-                        <img src="assets/images/icons/light_mode_24dp_1F1F1F_FILL1_wght400_GRAD0_opsz24.svg" alt="Light Mode" class="light-icon">
-                        <img src="assets/images/icons/dark_mode_24dp_1F1F1F_FILL1_wght400_GRAD0_opsz24.svg" alt="Dark Mode" class="dark-icon">
-                    </span>
+                    <span class="material-symbols-rounded theme-icon"></span>
                 </button>
                 <button class="hamburger" id="hamburger" aria-label="Open Menu">
                     <span></span>
@@ -38,7 +41,7 @@
     </header>
 
     <!-- Navigation : Mobile -->
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobile-menu">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
