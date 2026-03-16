@@ -219,6 +219,37 @@ body {
 }
 
 /* ============================================
+    FOOTER
+============================================ */
+#footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+}
+
+.footer-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.footer-top {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-top:hover { color: var(--ink); }
+
+/* ============================================
     MEDIA QUERIES
 ============================================ */
 
