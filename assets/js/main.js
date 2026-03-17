@@ -46,4 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         themeIcon.textContent = next === 'dark' ? 'dark_mode' : 'light_mode';
     });
 
+    // ── Footer: auto year ───────────────────────────────
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
 });

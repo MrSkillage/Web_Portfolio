@@ -94,7 +94,7 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 3rem;
     list-style: none;
 }
 
@@ -219,6 +219,225 @@ body {
 }
 
 /* ============================================
+    ABOUT
+============================================ */
+
+#about {
+  padding: 8rem 0 6rem;
+  margin-top: var(--nav-h);
+}
+
+.about-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* photo : text */
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Photo sticks below the navbar as you scroll */
+.about-photo {
+  position: sticky;
+  top: calc(var(--nav-h) + 2rem);
+}
+
+.about-photo img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Shown until a real photo is added */
+.about-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--surface);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--muted);
+}
+
+.about-heading {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.about-body {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
+}
+
+/* Key facts list — location, role, email etc. */
+.about-facts {
+  list-style: none;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0;
+}
+
+.about-facts li {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.88rem;
+}
+
+.fact-label {
+  color: var(--muted);
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.fact-value {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.fact-value a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fact-value a:hover { color: var(--muted); }
+
+/* CV download button */
+.btn-download {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.btn-download:hover { opacity: 0.85; }
+
+/* ============================================
+    EDUCATION
+============================================ */
+#education {
+  padding: 6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.education-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.education-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.education-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2rem;
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* H3 Tagging issue needed sorting */
+.education-degree {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+.education-school,
+.education-grade {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.education-grade { margin-top: 0.15rem; }
+
+.education-years {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.education-body {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.education-modules { margin-bottom: 1.5rem; }
+
+.education-modules-label,
+.education-skills-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.modules-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.4rem 1rem;
+}
+
+.modules-list li {
+  font-size: 0.88rem;
+  color: var(--muted);
+  padding-left: 0.85rem;
+  position: relative;
+}
+
+.modules-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--border);
+}
+
+.education-skills {
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+
+/* ============================================
     FOOTER
 ============================================ */
 #footer {
@@ -258,6 +477,5 @@ body {
     /* Navbar - Hide links and show hamburger */
     .nav-links { display: none; }
     .hamburger { display: flex; }
-
 
 }
