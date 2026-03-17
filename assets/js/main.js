@@ -1,16 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ── Mark body as JS-ready (enables scroll reveal) ───
+// ============ Utilities ============ //
+
+    // Mark body as JS-ready (enables scroll reveal)
     document.body.classList.add('js-ready');
 
-    // ── Scroll: add border to navbar when page scrolls ──
+// ============ Navigation ============ //
+    // Scroll: add border to navbar when page scrolls
     const navbar = document.getElementById('navbar');
 
     window.addEventListener('scroll', () => {
         navbar.classList.toggle('scrolled', window.scrollY > 10);
     });
 
-    // ── Hamburger: toggle mobile menu ───────────────────
+    // Hamburger: toggle mobile menu 
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -19,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.classList.toggle('open', isOpen);
     });
 
-    // ── Mobile menu: close when a link is tapped ────────
+    // Mobile menu: close when a link is tapped
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('open');
@@ -27,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ── Light / Dark mode toggle ─────────────────────────
+// ============ Light / Dark Mode ============ //
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon   = themeToggle.querySelector('.theme-icon');
     const htmlEl      = document.documentElement;
@@ -46,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         themeIcon.textContent = next === 'dark' ? 'dark_mode' : 'light_mode';
     });
 
-    // ── Footer: auto year ───────────────────────────────
+// ============ Footer: auto year ============ //
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
 });
