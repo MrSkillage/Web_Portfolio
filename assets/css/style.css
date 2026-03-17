@@ -54,6 +54,45 @@ body {
     padding: 0 2rem;
 }
 
+/* SECTIONS - USED BY ALL */
+.section {
+  padding: 6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2.5rem;
+}
+
+/* SKILLS - USED IN SKILLS, EDUCATION, AND EXPERIENCE */
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.skills-list li {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.3rem 0.7rem;
+}
+
+.skills-list li:hover {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+  cursor: default;
+}
+
 /* ============================================
     NAVBAR AND MOBILE MENU
 ============================================ */
@@ -332,6 +371,45 @@ body {
 }
 
 .btn-download:hover { opacity: 0.85; }
+
+/* ============================================
+    SKILLS
+============================================ */
+
+#skills {
+  padding: 6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.skills-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.skills-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.75rem;
+}
+
+.skills-group-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--accent);
+}
 
 /* ============================================
     EDUCATION
