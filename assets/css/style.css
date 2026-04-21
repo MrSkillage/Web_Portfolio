@@ -61,11 +61,11 @@ body {
 }
 
 .section-label {
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
+  font-size: 1rem;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 /* SKILLS - USED IN SKILLS, EDUCATION, AND EXPERIENCE */
@@ -262,7 +262,7 @@ body {
 ============================================ */
 
 #about {
-  padding: 8rem 0 6rem;
+  padding: 8rem 0 3rem;
   margin-top: var(--nav-h);
 }
 
@@ -364,7 +364,7 @@ body {
 ============================================ */
 
 #skills {
-  padding: 6rem 0;
+  padding: 3rem 0;
   border-top: 1px solid var(--border);
 }
 
@@ -402,7 +402,7 @@ body {
     EDUCATION
 ============================================ */
 #education {
-  padding: 6rem 0;
+  padding: 3rem 0;
   border-top: 1px solid var(--border);
 }
 
@@ -506,7 +506,7 @@ body {
     EXPERIENCE
 ============================================ */
 #experience {
-  padding: 6rem 0;
+  padding: 3rem 0;
   border-top: 1px solid var(--border);
 }
 
@@ -587,17 +587,33 @@ body {
 }
 
 .experience-body {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.experience-body li {
   font-size: 0.92rem;
   color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 1rem;
+  line-height: 1.7;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.experience-body li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
 }
 
 /* ============================================
     CONTACT
 ============================================ */
 #contact {
-  padding: 6rem 0;
+  padding: 3rem 0;
   border-top: 1px solid var(--border);
 }
 
