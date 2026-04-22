@@ -49,6 +49,53 @@ document.addEventListener('DOMContentLoaded', () => {
         themeIcon.textContent = next === 'dark' ? 'dark_mode' : 'light_mode';
     });
 
+// ============ Scroll Reveal ============ //
+    const revealEls = document.querySelectorAll(
+        '.reveal, .reveal-child, .experience-item'
+    );
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { 
+        threshold: 0, 
+        rootMargin: '0px 0px -150px 0px'
+    });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+// ── Active nav link on scroll ────────────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    function setActiveNavLink() {
+        const viewportMid = window.innerHeight / 2;
+        let closest = null;
+        let closestDist = Infinity;
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const dist = Math.abs((rect.top + rect.height / 2) - viewportMid);
+            if (dist < closestDist) {
+                closestDist = dist;
+                closest = section;
+            }
+        });
+
+        if (closest) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`.nav-links a[href="#${closest.id}"]`);
+            if (activeLink) activeLink.classList.add('active');
+        }
+    }
+
+    window.addEventListener('scroll', setActiveNavLink, { passive: true });
+    setActiveNavLink();
+
 // ============ Footer: auto year ============ //
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
