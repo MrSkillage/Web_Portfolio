@@ -3,13 +3,14 @@
 ============================================ */
 :root {
   /* Theme Colours */
-  --bg:      #faf6ef;
-  --ink:     #1c1714;
-  --muted:   #7e7168;
-  --border:  #f0e8db;
+  --bg:      #f2f8ff;
+  --ink:     #0d1b2e;
+  --muted:   #5a7a99;
+  --border:  #c0dcf5;
   --surface: #ffffff;
   --error:   #c0392b;
-  --accent:  #f59e0b;
+  --accent:  #0099ff;
+  --accent2:  #b8e8ff; /* Rework to include accent 2 needed. */
 
   /* Layout */
   --nav-h:   64px;
@@ -18,12 +19,13 @@
 
 /* Dark Mode Theme */
 [data-theme="dark"] {
-  --bg:      #0f1117;
-  --ink:     #e8eaf0;
-  --muted:   #6b7280;
-  --border:  #2a2d3a;
-  --surface: #1a1d27;
-  --accent:  #f59e0b;
+  --bg:      #080e1a;
+  --ink:     #e2f0ff;
+  --muted:   #6b8eb0;
+  --border:  #1a2d4a;
+  --surface: #0f1e33;
+  --accent:  #00cfff;
+  --accent2:  #0a2540;
 }
 
 /* ============================================
