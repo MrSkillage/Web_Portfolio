@@ -35,10 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeIcon   = themeToggle.querySelector('.theme-icon');
     const htmlEl      = document.documentElement;
 
+    const themeCallout = document.getElementById('themeCallout');
+
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         htmlEl.setAttribute('data-theme', savedTheme);
         themeIcon.textContent = savedTheme === 'dark' ? 'dark_mode' : 'light_mode';
+        if (savedTheme === 'dark') themeCallout.classList.add('hidden');
+    } else {
+        themeIcon.textContent = 'light_mode';
     }
 
     themeToggle.addEventListener('click', () => {
@@ -47,7 +52,21 @@ document.addEventListener('DOMContentLoaded', () => {
         htmlEl.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
         themeIcon.textContent = next === 'dark' ? 'dark_mode' : 'light_mode';
+
+        if (next === 'dark') {
+            themeCallout.classList.add('hidden');
+        } else {
+            themeCallout.classList.remove('hidden');
+        }
     });
+
+    // ── Callout: fade when hero code block scrolls out of view ──
+    const heroVisual = document.querySelector('.hero-visual');
+    if (heroVisual) {
+        new IntersectionObserver((entries) => {
+            themeCallout.classList.toggle('faded', !entries[0].isIntersecting);
+        }, { threshold: 0 }).observe(heroVisual);
+    }
 
 // ============ Scroll Reveal ============ //
     const revealEls = document.querySelectorAll(
@@ -95,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', setActiveNavLink, { passive: true });
     setActiveNavLink();
-
+    
 // ============ Footer: auto year ============ //
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
