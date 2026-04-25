@@ -1,5 +1,5 @@
 /* ============================================
-    THEME VARAIABLES
+    THEME VARIABLES
 ============================================ */
 :root {
   /* Theme Colours */
@@ -8,7 +8,6 @@
   --muted:   #5a7a99;
   --border:  #c0dcf5;
   --surface: #ffffff;
-  --error:   #c0392b;
   --accent:  #0099ff;
   --accent2:  #b8e8ff; /* Rework to include accent 2 needed. */
 
@@ -25,11 +24,11 @@
   --border:  #1a2d4a;
   --surface: #0f1e33;
   --accent:  #00cfff;
-  --accent2:  #0a2540;
+  --accent2:  #0a2540; /* Rework to include accent 2 needed. */
 }
 
 /* ============================================
-    HARD REST FEATRUES
+    HARD RESET FEATURES
 ============================================ */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -39,6 +38,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-h);
 }
 
 body {
@@ -50,18 +50,6 @@ body {
 /* ============================================
     UTILITIES
 ============================================ */
-.container {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* SECTIONS - USED BY ALL */
-.section {
-  padding: 6rem 0;
-  border-top: 1px solid var(--border);
-}
-
 .section-label {
   font-size: 1rem;
   letter-spacing: 0.25em;
@@ -88,7 +76,7 @@ body {
   padding: 0.3rem 0.7rem;
 }
 
-.skills-list li:hover {
+.skills-list li:hover { 
   background: var(--ink);
   color: var(--bg);
   border-color: var(--ink);
@@ -324,7 +312,33 @@ body {
   position: relative;
 }
 
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-blob-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--accent);
+  top: -100px;
+  right: -50px;
+}
+
+.hero-blob-2 {
+  width: 350px;
+  height: 350px;
+  background: var(--accent);
+  bottom: 0;
+  left: -80px;
+}
+
 .hero-container {
+  position: relative;
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 4rem 2rem;
@@ -332,6 +346,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  z-index: 1;
 }
 
 /* ── Left — text ──────────────────────────── */
@@ -361,11 +376,6 @@ body {
   opacity: 0;
   transform: translateY(16px);
   animation: fadeUp 0.6s ease 0.25s forwards;
-}
-
-/* Second line of title — muted colour */
-.hero-title-muted {
-  color: var(--muted);
 }
 
 .hero-subtitle {
@@ -533,7 +543,6 @@ body {
 
 #about {
   padding: 8rem 0 3rem;
-  margin-top: var(--nav-h);
 }
 
 .about-container {
@@ -612,23 +621,6 @@ body {
 
 .fact-value a:hover { color: var(--muted); }
 
-/* CV download button */
-.btn-download {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.7rem 1.4rem;
-  background: var(--accent);
-  color: var(--bg);
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.btn-download:hover { opacity: 0.85; }
-
 /* ============================================
     SKILLS
 ============================================ */
@@ -703,7 +695,6 @@ body {
   margin-bottom: 1.25rem;
 }
 
-/* H3 Tagging issue needed sorting */
 .education-degree {
   font-size: 1.2rem;
   font-weight: 600;
@@ -725,13 +716,6 @@ body {
   font-size: 0.75rem;
   color: var(--muted);
   white-space: nowrap;
-}
-
-.education-body {
-  font-size: 0.92rem;
-  color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
 }
 
 .education-modules { margin-bottom: 1.5rem; }
@@ -895,7 +879,7 @@ body {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 4rem;
   align-items: start;
 }
@@ -1040,9 +1024,7 @@ body {
     gap: 0.4rem;
   }
 
-  .module-list {
-    grid-template-columns: 1fr;
-  }
+  .modules-list { grid-template-columns: 1fr; }
 
   .experience-timeline { padding-left: 1.25rem; }
   .experience-marker   { left: -1.6rem; }
@@ -1053,7 +1035,6 @@ body {
   }
 
   .contact-grid {
-    grid-template-columns: 1fr;
     gap: 2.5rem;
   }
 

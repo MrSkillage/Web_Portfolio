@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         navbar.classList.toggle('scrolled', window.scrollY > 10);
-    });
+    }, { passive: true });
 
     // Hamburger: toggle mobile menu 
     const hamburger = document.getElementById('hamburger');
@@ -91,29 +91,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    function setActiveNavLink() {
-        const viewportMid = window.innerHeight / 2;
-        let closest = null;
-        let closestDist = Infinity;
-
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            const dist = Math.abs((rect.top + rect.height / 2) - viewportMid);
-            if (dist < closestDist) {
-                closestDist = dist;
-                closest = section;
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                const activeLink = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+                if (activeLink) activeLink.classList.add('active');
             }
         });
+    }, {
+        rootMargin: '-50% 0px -50% 0px',
+        threshold: 0
+    });
 
-        if (closest) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            const activeLink = document.querySelector(`.nav-links a[href="#${closest.id}"]`);
-            if (activeLink) activeLink.classList.add('active');
-        }
-    }
+    sections.forEach(section => navObserver.observe(section));
 
-    window.addEventListener('scroll', setActiveNavLink, { passive: true });
-    setActiveNavLink();
     
 // ============ Footer: auto year ============ //
     document.getElementById('currentYear').textContent = new Date().getFullYear();
